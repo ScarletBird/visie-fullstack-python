@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt" class="m2">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href="{{ url_for('static', filename='index.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Visie Pessoas</title>
+</head>
+<body>
+    <div id="main">
+        <table>
+        <tr class="table-title">
+            <th>Nome</th>
+            <th>Data de admissão</th>
+            <th></th>
+        </tr>
+        {% for nome in nomes %}
+            <tr class="table-row">
+                <th hidden>{{nome['id_pessoa']}}</th>
+                <th hidden>{{nome['id']}}</th>
+                <th>{{nome['nome']}}</th>
+                <th>{{nome['data_admissao']}}</th>
+                <th>
+                    <form 
+                        method="POST" 
+                        action="/pessoas/{{nome['id_pessoa']}}"
+                        onsubmit="setTimeout(function(){window.location.reload();},1000);">
+                    
+                    <button type="submit">
+                        Excluir
+                    </button>
+                    </form>
+                </th>
+            </tr>
+        {% endfor %}
+        </table>
+
+        <form 
+            method="POST" 
+            action="/pessoas"
+            onsubmit="setTimeout(function(){window.location.reload();},2000);">
+
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Nome" required>
+            <label for="data_admissao">Data de admissão</label>
+            <input type="date" id="data_admissao" name="data_admissao" required>
+
+            <button type="submit" id='adicionar'>Adicionar</button>
+        </form>
+        
+    </div>
+</body>
+</html>

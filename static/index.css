@@ -1,0 +1,39 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width:768px){
+    div#main {
+        text-align: left !important;
+    }
+    table {
+        margin-left: 0 !important;
+    }
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width:500px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div#main {
+    text-align: center;
+}
+
+th button:hover {
+    background-color: rgba(255, 0, 0, 0.767);
+    color: white;
+}
+
+tr.table-row th {
+    padding: 4px;
+    font-weight: normal;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
